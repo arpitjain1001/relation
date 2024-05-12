@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block start %}
+
+   <h1>TABLES SHOWN</h1>
+
+   <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">S.NO</th>
+        <th scope="col">NAME</th>
+        <th scope="col">AGE</th>
+        <th scope="col">CAN VOTE</th>
+
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for peoples in peoples %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{peoples.name}}</td>
+        <td>{{peoples.age}}</td>
+        <td>{% if peoples.age >= 18 %}
+           YES
+           {% else %}
+           NO
+           {% endif %}
+        </td>
+         
+        {% comment %} check django templates in google  {% endcomment %}
+         
+        
+         <td>{% if "cucumber" in vegetables %}
+            yes available
+            {% elif "tomato" in vegetables %}
+            yes available
+            {% else %}
+            not available
+            {% endif %}
+
+        </td>
+      </tr>
+      <tr>
+
+    
+      {%endfor%}
+    </tr>
+    </tbody>
+  </table>
+  <a href="/family/contact/">contact</a>
+  <a href="/family/about/">about</a>
+  {% endblock %}
